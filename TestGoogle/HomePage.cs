@@ -6,7 +6,7 @@ namespace TestGoogle
     {
         private static readonly By searchInput = By.XPath("//*[contains(@class, 'gLFyf')]");
         private static readonly By searchButton = By.XPath("//div[@class='lJ9FBc']/center/input[@class='gNO89b']");
-        public const string searchItem = "Sweets";
+        private const string searchItem = "Sweets";
 
         public static void SearchOnHomePage(WebDriver driver)
         {
