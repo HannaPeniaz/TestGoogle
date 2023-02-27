@@ -5,13 +5,27 @@ namespace TestGoogle
 {
     public class Tests
     {
+        private IWebDriver driver;
+        private static readonly string searchText = "mustang shelby";
+
+        [SetUp]
+        public void Setup()
+        {
+            driver = Configuration.WebDriver.GetWebDriver();
+            driver.Navigate().GoToUrl("https://www.google.com/");
+            driver.Manage().Window.Maximize();
+        }
+
         [Test]
         public void Test1()
         {
-            WebDriver driver = Config.GetWebDriver("chrome");
-            driver.Navigate().GoToUrl("https://www.google.com/");
-            driver.Manage().Window.Maximize();
-            HomePage.SearchOnHomePage(driver);
+            HomePage.SearchOnHomePage(driver,searchText);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            driver.Quit();
         }
     }
 }
